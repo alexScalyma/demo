@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>scan-ez pro</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <script src="script.js"></script>
+    <img id="mask" src="45degMask.png" style="display: none"/>
+    <img id="mask-flip" src="45degMask_flip.png" style="display: none"/>
+    <div class="">
+        <video autoplay playsinline id="vid" style="display: none;" ></video>
+        <canvas class="cropped"id="canvasVidElement" onclick="capturePhoto()" ></canvas>
+    </div>
+
+    <div style="position: absolute;top:650px; width: 80%;">
+        <input type="range" min="0.01" max="3" value="1.5" step="0.1" class="slider" id="myRange" style="width: 100%;">
+        <button id="but" onclick="onOpenVideo()" style="display: none;">
+            Open WebCam
+        </button>
+        <select id="videoOption" onchange="onSelectChange()" >
+        </select>
+        <text id="selected" style="display: none;"></text>
+        <br />
+        <br />
+        <button id="but" onclick="onMaskChange(1)"style="height: 50px; width: 50px;">
+            Alex
+        </button>
+        <button id="but" onclick="onMaskChange(2)"style="height: 50px; width: 50px;">
+            45
+        </button>
+        <button id="but" onclick="onMaskChange(3)"style="height: 50px; width: 50px;">
+            61
+        </button>
+        <button id="but" onclick="onMaskChange(4)"style="height: 50px; width: 50px;">
+            square
+        </button>
+        <button id="but" onclick="onRotate()"style="height: 50px; width: 50px;">
+            rotate
+        </button>
+        <button id="but" onclick="onFlash()" style="height: 50px; width: 50px;">
+            flash
+        </button>
+        <text id="flip" style="display: none;">0</text>
+        <text id="flash" style="display: none;">1</text>
+
+
+    </div>
+
+</body>
+
+</html>
