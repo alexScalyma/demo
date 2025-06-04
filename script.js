@@ -1,3 +1,4 @@
+document.body.style.overflow='hidden'
 async function getPermission() {
     await navigator.mediaDevices.getUserMedia({ video: true})
 
