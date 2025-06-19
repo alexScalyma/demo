@@ -42,8 +42,6 @@ let draw = function () {
             break
         }
     }
-    ctx.filter = "blur(15px)";
-    ctx.drawImage(canvas, 0, 0);
     requestAnimationFrame(draw);
 };
 async function getDevices() {
