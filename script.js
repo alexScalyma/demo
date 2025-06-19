@@ -39,7 +39,19 @@ let draw = function () {
             break
         }
     }
-
+    var imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+      var d = imgData.data;
+      // loop through all pixels
+      // each pixel is decomposed in its 4 rgba values
+      for (var k = 0; k < d.length; k += 4) {
+        // get the medium of the 3 first values ( (r+g+b)/3 )
+        var med = (d[k] + d[k + 1] + d[k + 2]) / 3;
+        // set it to each value (r = g = b = med)
+        d[k] = d[k + 1] = d[k + 2] = med;
+        // we don't touch the alpha
+      }
+      // redraw the new computed image
+      ctx.putImageData(imgData, 0, 0);
     requestAnimationFrame(draw);
 };
 async function getDevices() {
