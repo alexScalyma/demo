@@ -24,9 +24,12 @@ let draw = function () {
     let i = 0
     let j = 0
     
-    ctx.globalCompositeOperation = "difference";
+    
     while(video.videoHeight > mask.naturalHeight /range.value * i) {
         while(video.videoWidth > mask.naturalWidth /range.value * j){
+            ctx.globalCompositeOperation = "difference";
+            ctx.drawImage(mask,  mask.naturalWidth /range.value * j, mask.naturalHeight/range.value * i, mask.naturalWidth /range.value , mask.naturalHeight/range.value );
+            ctx.globalCompositeOperation = "color";
             ctx.drawImage(mask,  mask.naturalWidth /range.value * j, mask.naturalHeight/range.value * i, mask.naturalWidth /range.value , mask.naturalHeight/range.value );
             j++
             if (j > 2){
@@ -39,9 +42,6 @@ let draw = function () {
             break
         }
     }
-    ctx.globalCompositeOperation = "source-over";
-    ctx.filter = 'grayscale(1)';
-    ctx.drawImage(canvas, 0, 0, canvas.width, canvas.height);
     requestAnimationFrame(draw);
 };
 async function getDevices() {
