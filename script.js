@@ -24,6 +24,7 @@ let draw = function () {
     let i = 0
     let j = 0
     
+    ctx.globalCompositeOperation = "difference";
     while(video.videoHeight > mask.naturalHeight /range.value * i) {
         while(video.videoWidth > mask.naturalWidth /range.value * j){
             ctx.drawImage(mask,  mask.naturalWidth /range.value * j, mask.naturalHeight/range.value * i, mask.naturalWidth /range.value , mask.naturalHeight/range.value );
